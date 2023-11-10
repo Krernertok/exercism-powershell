@@ -19,5 +19,5 @@ jobs:
             - name: Change directory
               run: cd $GITHUB_BASE_REF
 
-            - name: Run tests
+            - name: Run tests        
               run: Invoke-Pester
