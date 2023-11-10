@@ -17,7 +17,7 @@ jobs:
               run: Install-Module -Name Pester -Force -SkipPublisherCheck
 
             - name: Change directory
-              run: echo $GITHUB_BASE_REF
+              run: Write-Host $GITHUB_BASE_REF
 
             - name: Run tests
               run: Invoke-Pester
