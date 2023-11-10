@@ -17,7 +17,7 @@ jobs:
               run: Install-Module -Name Pester -Force -SkipPublisherCheck
 
             - name: Change directory
-              run: "cd ($GITHUB_REF).Basename"
+              run: "cd (Get-Item $GITHUB_REF).Basename"
 
             - name: Run tests
               working-directory: ./${{ github.ref }}
