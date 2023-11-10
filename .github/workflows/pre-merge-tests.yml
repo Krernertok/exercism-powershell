@@ -16,8 +16,9 @@ jobs:
             - name: Install Pester
               run: Install-Module -Name Pester -Force -SkipPublisherCheck
 
+            - uses: actions/checkout@v4
 
             - name: Run tests
               run: |
-                cd $GITHUB_BASE_REF
+                cd $GITHUB_HEAD_REF
                 Invoke-Pester
