@@ -19,9 +19,11 @@ jobs:
             - uses: actions/checkout@v4
 
             - name: bash debug
+              shell: bash
               run: |
                 pwd
                 ls -la
+                echo $GITHUB_HEAD_REF
 
             - name: Run tests
               run: |
