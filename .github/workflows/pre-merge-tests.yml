@@ -21,5 +21,6 @@ jobs:
             - name: Run tests
               run: |
                 cd $GITHUB_HEAD_REF
+                Get-Location
                 ls
                 Invoke-Pester
