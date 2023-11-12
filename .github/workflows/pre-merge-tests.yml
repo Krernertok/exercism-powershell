@@ -3,7 +3,6 @@ name: pre-merge-tests
 on:
     pull_request: 
         types: [opened, reopened, edited, synchronize]
-    workflow_dispatch:
 
 jobs:
     pull_request_tests:
