@@ -3,22 +3,16 @@ name: pre-merge-tests
 on:
     pull_request: 
         types: [opened, reopened, edited, synchronize]
-    workflow_dispatch:
 
 jobs:
-    pull_request_tests_ubuntu:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-
-            - name: Run tests
-              shell: pwsh
-              run: |
-                cd ${env:GITHUB_HEAD_REF}
-                Invoke-Pester
-    
-    pull_request_tests_windows:
-        runs-on: windows-latest
+    pull_request_tests:
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+        defaults:
+          run:
+            shell: pwsh
+        runs-on: ${{ matrix.os }}
         steps:
             - uses: actions/checkout@v4
 
