@@ -10,23 +10,15 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Install Pester
-              shell: pwsh
-              run: Install-Module -Name Pester -Force -SkipPublisherCheck
-
             - uses: actions/checkout@v4
 
             - name: bash debug
               shell: bash
               run: |
-                pwd
-                ls -la
-                echo ${{ github.head_ref }}
+                echo "Head ref: ${GITHUB_HEAD_REF}"
 
             - name: Run tests
               shell: pwsh
               run: |
                 cd $GITHUB_HEAD_REF
-                Get-Location
-                ls
                 Invoke-Pester
