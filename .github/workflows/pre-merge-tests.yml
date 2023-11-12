@@ -12,14 +12,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
 
-            - name: bash debug
-              shell: bash
-              run: |
-                echo "Head ref: ${GITHUB_HEAD_REF}"
-
             - name: Run tests
               shell: pwsh
               run: |
-                cd $GITHUB_HEAD_REF
-                pwd
                 Invoke-Pester
