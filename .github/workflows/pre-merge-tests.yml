@@ -15,5 +15,6 @@ jobs:
             - name: Run tests
               shell: pwsh
               run: |
+                cd ${env:GITHUB_HEAD_REF}
                 pwd
                 Invoke-Pester
