@@ -21,4 +21,5 @@ jobs:
               shell: pwsh
               run: |
                 cd $GITHUB_HEAD_REF
+                pwd
                 Invoke-Pester
