@@ -6,9 +6,19 @@ on:
     workflow_dispatch:
 
 jobs:
-    pull_request_tests:
+    pull_request_tests_ubuntu:
         runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
 
+            - name: Run tests
+              shell: pwsh
+              run: |
+                cd ${env:GITHUB_HEAD_REF}
+                Invoke-Pester
+    
+    pull_request_tests_windows:
+        runs-on: windows-latest
         steps:
             - uses: actions/checkout@v4
 
