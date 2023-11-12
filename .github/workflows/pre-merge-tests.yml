@@ -8,7 +8,6 @@ on:
 jobs:
     pull_request_tests_ubuntu:
         runs-on: ubuntu-latest
-
         steps:
             - uses: actions/checkout@v4
 
@@ -18,11 +17,8 @@ jobs:
                 cd ${env:GITHUB_HEAD_REF}
                 Invoke-Pester
     
-    # TODO: add job for Windows runner
-
     pull_request_tests_windows:
         runs-on: windows-latest
-
         steps:
             - uses: actions/checkout@v4
 
